@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="white">
+    <button ion-button menuToggle>
+      <ion-icon name="ios-menu-outline"></ion-icon>
+    </button>
+    <ion-title>DELIVERY INFORMATION</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list style="border-top:3px solid black;">
+    <ion-item>
+      <ion-label floating>FIRST NAME</ion-label>
+      <ion-input type="text" [(ngModel)]="fname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>LAST NAME</ion-label>
+      <ion-input type="text" [(ngModel)]="lname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>ADDRESS LINE 1</ion-label>
+      <ion-input type="text" [(ngModel)]="add1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>ADDRESS LINE 2</ion-label>
+      <ion-input type="text" [(ngModel)]="add2"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>POSTCODE/ZIPCODE</ion-label>
+      <ion-input type="text" [(ngModel)]="zip"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>EMAIL</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>PHONE NUMBER</ion-label>
+      <ion-input type="number" [(ngModel)]="phone"></ion-input>
+    </ion-item>
+<br /><br /><br />
+  </ion-list>
+    <button ion-button full style="position:fixed;bottom:0px;left:0px;width:100%;height:50px;margin-bottom:0px;" color="black" (click)="goPayments();">NEXT</button>
+</ion-content>

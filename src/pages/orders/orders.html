@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="white">
+    <button ion-button menuToggle>
+      <ion-icon name="ios-menu-outline"></ion-icon>
+    </button>
+    <ion-title>YOUR ORDERS</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style=" background-color: #f1f1f1; ">
+  <ion-list no-lines>
+    <ion-item *ngFor="let item of orders">
+      <h2 style="text-transform:uppercase;">{{ item.sale_datetime | date:'yyyy-MM-dd' }}</h2>
+      <h3 style="font-weight:bold;text-transform:uppercase;">Grand Total: {{ item.grand_total }}</h3>
+      <p  style="text-transform:uppercase;">
+        Payment Type: {{ item.payment_type }}
+      </p>
+      <button ion-button clear item-end (click)="Invoice(item.sale_id);">View</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

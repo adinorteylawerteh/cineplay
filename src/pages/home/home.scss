@@ -1,0 +1,36 @@
+page-home {
+  .searchbar-md {
+    padding: 10px 8px;
+background: #f9b03b;
+margin-top: -2px;
+box-shadow: 1px 1px 16px 3px rgba(0, 0, 0, 0.32941176470588235);
+}
+
+.grad {
+  background: -webkit-linear-gradient(45deg, #e99935 0%,#a34a1e 100%) !important;
+}
+
+.proad {
+  box-shadow: 1px 1px 16px 3px rgba(0, 0, 0, 0.32941176470588235);
+}
+
+.scroll-content {
+  padding: 0px !important;
+}
+
+.bar-buttons,
+  .toolbar-title {
+    color: #fff !important;
+  }
+
+  .list-header-md {
+    background: transparent;
+    padding-left: 16px;
+    margin-bottom: 0;
+    min-height: 4.5rem;
+    border-top: none;
+    font-size: 1.4rem;
+    color: #000000;
+    font-weight: bold;
+}
+}

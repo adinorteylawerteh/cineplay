@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar color="white">
+    <button ion-button menuToggle>
+      <ion-icon name="ios-menu-outline"></ion-icon>
+    </button>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons end style=" margin-right: 15px; ">
+      <button ion-button icon-only (click)="openSearch();">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="openCart();">
+        <ion-icon *ngIf="cartnum == 0" name="cart"></ion-icon><ion-icon *ngIf="cartnum > 0" name="cart" color="blueblack"></ion-icon><ion-badge *ngIf="cartnum > 0" item-end color="red" round>{{ cartnum }}</ion-badge>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style=" background-color: #f1f1f1; " class="product-main">
+  <ion-slides pager style=" height: auto;margin-bottom:0px;padding-bottom:0px; ">
+
+    <ion-slide *ngFor="let image of pimage">
+      <img src="https://cineplayafrica.tv/assets/global/movie_poster/{{ pid }}.jpg" style="height:auto;width:100%;object-fit:cover;" />
+    </ion-slide>
+    <button (click)="playVideo()" style=" position: absolute; left: 50%; transform: translateX(-50%); z-index: 90; top: 70px; " icon-left ion-button color="orange" outline><ion-icon name="play"></ion-icon> Play</button>
+  </ion-slides>
+<div padding>
+  <h1 style="margin-bottom:0px;">{{ title }}</h1>
+
+</div>
+
+
+  <ion-card *ngIf="description != null">
+    <ion-card-content style="padding:0px;">
+      <div>
+        <ion-segment [(ngModel)]="product">
+          <ion-segment-button value="desc">
+            Description
+          </ion-segment-button>
+          <ion-segment-button value="specs">
+            Specifications
+          </ion-segment-button>
+          <ion-segment-button value="ship">
+            Delivery
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
+      <div [ngSwitch]="product">
+        <ion-list *ngSwitchCase="'desc'">
+          <ion-item>
+            <div [innerHTML]="description">
+            </div>
+          </ion-item>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'specs'">
+          <ion-item>
+
+          </ion-item>
+        </ion-list>
+        <ion-list *ngSwitchCase="'ship'">
+          <ion-item>
+            <p>
+              ArenaGH promises the best delivery experience. We charge a single delivery fee on checkout and that's it. Our agent will delivery your order almost immedietly.
+            </p>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

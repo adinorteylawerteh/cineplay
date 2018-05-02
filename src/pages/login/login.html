@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar transparent>
+    <ion-title></ion-title>
+    <ion-buttons end style=" margin-right: 15px; ">
+      <button ion-button (click)="goSignup();" style="color:#fff;">
+        Signup
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-image: url('assets/img/login.jpg');background-size:cover;background-position: 60% 0px;" fullscreen>
+  <ion-card style=" margin-bottom: 0px; border-radius: 2px 2px 0px 0px; ">
+    <ion-card-content style=" padding-top: 25px; ">
+      <ion-list>
+        <p style="padding:0px 15px 0px 15px;font-size:16px;font-weight:bold;text-transform:uppercase;">
+          Login to your CinePlay Account
+        </p>
+        <ion-item style=" background: transparent; ">
+          <ion-label floating>EMAIL</ion-label>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+        <ion-item style=" background: transparent; ">
+          <ion-label floating>PASSWORD</ion-label>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+    <button ion-button full style="bottom:0px;left:0px;height:50px;margin-bottom:0px;color:#000;width: calc(100% - 20px);margin: 0px 10px;border-radius: 0 0 2px 2px;" color="orange" (click)="doLogin();">LOGIN</button>
+
+    <p style=" color: #fff; text-align: center; font-weight: bold; display: block; margin-top: 2pc; ">FORGOT PASSWORD?</p>
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="white">
+    <button ion-button menuToggle>
+      <ion-icon name="ios-menu-outline"></ion-icon>
+    </button>
+    <ion-title>SHOPPING CART</ion-title>
+    <ion-buttons end style=" margin-right: 15px; ">
+      <button ion-button icon-only (click)="openSearch();">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon *ngIf="cartnum == 0" name="cart"></ion-icon><ion-icon *ngIf="cartnum > 0" name="cart" color="blueblack"></ion-icon><ion-badge *ngIf="cartnum > 0" item-end color="red" round>{{ cartnum }}</ion-badge>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style=" background-color: #f1f1f1; ">
+  <ion-list>
+    <div style="margin-bottom: 0;background:#fff;box-shadow: 1px 1px 16px 3px rgba(0, 0, 0, 0.32941176470588235);position:relative;z-index:9;" >
+      <div padding>
+        <p style="font-size:20px;margin:5px 0px;">There <span *ngIf="cartnum == 1">is</span><span *ngIf="cartnum != 1">are</span> <strong>{{ cartnum }}</strong> item<span *ngIf="cartnum != 1">s</span> in your shopping cart.</p>
+        <p *ngIf="cartnum != 0">Review your item<span *ngIf="cartnum != 1">s</span> and checkout.</p>
+        <p *ngIf="cartnum == 0">Add some items to your cart and checkout.</p>
+      </div>
+    </div>
+      <ion-item *ngFor="let p of cartlist">
+        <ion-avatar item-start>
+          <img src="https://app.arenagh.org/uploads/product_image/product_{{ p.product_id }}_1_thumb.jpg" style=" width: 60px; height: 60px; border-radius: 3px;object-fit: cover;">
+        </ion-avatar>
+        <h2 style=" white-space: normal; ">{{ p.product_name }}</h2>
+        <h3 style="font-size:17px;font-weight:bold;color: #000;margin-top:9px;">{{ p.sale_price }}</h3>
+        <h3 style="margin-top:10px;color:red;" (click)="delItemCart(p.product_id)">Remove item</h3>
+      </ion-item>
+      <br />
+      <br />
+  </ion-list>
+  <button *ngIf="is_logged == false" ion-button full style="position:fixed;bottom:0px;left:0px;width:100%;height:50px;margin-bottom:0px;" color="black" (click)="goLogin();">Checkout(GH¢{{ total }})</button>
+
+  <button *ngIf="is_logged == true" ion-button full style="position:fixed;bottom:0px;left:0px;width:100%;height:50px;margin-bottom:0px;background: -webkit-linear-gradient(45deg, #e99935 0%,#a34a1e 100%);" color="black" (click)="goDelivery();" >Checkout(GH¢{{ total }})</button>
+</ion-content>

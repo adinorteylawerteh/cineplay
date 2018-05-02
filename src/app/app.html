@@ -1,0 +1,43 @@
+<ion-menu [content]="content">
+  <ion-content>
+    <ion-list no-lines>
+      <ion-list-header style=" background-color: #f1f1f1;color:#000;font-weight:bold; ">
+        ACCOUNT
+      </ion-list-header>
+      <button *ngIf="is_logged == false" style="text-transform:uppercase;" menuClose ion-item (click)="goLogin()">
+      <ion-icon color="blueblack" name="ios-arrow-dropright-outline" item-start></ion-icon>  Sign In
+      </button>
+      <button *ngIf="is_logged == false" style="text-transform:uppercase;"  menuClose ion-item (click)="goSignup()">
+      <ion-icon color="blueblack" name="ios-person-add-outline" item-start></ion-icon>  Sign Up
+      </button>
+
+      <button *ngIf="is_logged == true" style="text-transform:uppercase;" menuClose ion-item (click)="goProfile()">
+      <ion-icon color="blueblack" name="ios-person-outline" item-start></ion-icon>  My Account
+      </button>
+      <button *ngIf="is_logged == true" style="text-transform:uppercase;" menuClose ion-item (click)="logOut()">
+      <ion-icon color="blueblack" name="ios-arrow-dropleft-outline" item-start></ion-icon>  Logout
+      </button>
+    </ion-list>
+    <ion-list no-lines>
+      <ion-list-header style=" background-color: #f1f1f1;color:#000;font-weight:bold; ">
+        MENU
+      </ion-list-header>
+      <button style="text-transform:uppercase;" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <ion-icon color="blueblack" name="{{ p.icon }}" item-start></ion-icon>  {{p.title}}
+      </button>
+    </ion-list>
+    <ion-list no-lines>
+      <ion-list-header style=" background-color: #f1f1f1;color:#000;font-weight:bold; ">
+        STORES
+      </ion-list-header>
+      <button style="text-transform:uppercase;" menuClose ion-item *ngFor="let p of categories" (click)="openCat(p.category_id,p.category_name)">
+        {{p.category_name}}
+        <ion-icon color="blueblack" name="ios-arrow-forward-outline" item-end></ion-icon>
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

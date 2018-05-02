@@ -1,0 +1,42 @@
+.product-main {
+  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+      border-color: #000;
+      color: #000;
+  }
+  .segment-md .segment-button, .segment-md .segment-button {
+      color: #000;
+  }
+
+  ion-list {
+    white-space: inherit !important;
+        text-overflow: inherit !important;
+  }
+
+ion-label {
+  text-overflow: inherit;
+white-space: initial;
+}
+
+  p {
+    white-space: inherit !important;
+        text-overflow: inherit !important;
+            line-height: 25px;
+            font-size: 1.7rem;
+color: #000;
+  }
+  ul {
+    white-space: inherit;
+        text-overflow: inherit !important;
+        font-size: 1.7rem;
+  }
+
+  ul li {
+    white-space: inherit;
+        text-overflow: inherit !important;
+        font-size: 1.7rem;
+  }
+
+  ul li img {
+    max-width: 100%;
+  }
+}
